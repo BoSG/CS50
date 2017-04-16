@@ -1,0 +1,46 @@
+#include <cs50.h>
+#include <stdio.h>
+#include <string.h>
+#include <ctype.h>
+
+int main(int argc, string argv[])
+{
+bool valid_key = false;
+int N;
+int k;
+
+do
+{
+    if (argc !=2 || N<0)
+    {
+    printf("ugyldig nøgle, start programmet forfra og prøv igen ");
+    return 1;
+    }
+    else
+    {
+    N = atoi(argv[1]);
+    valid_key=true;
+    // kan ikke få dette til at virker ... skriver teksten i en uendelig løkke....???
+    // for (int j=0; j<1;j++);
+    // printf("indtast tekst der skal krypteres med casaer");
+    // j = j+1;
+    }
+}
+while(valid_key);
+{
+string text=get_string();
+k=(strlen(text));
+
+for (int i=0; i<k ;i++)
+if (isalpha(text[i]))
+   if (islower(text[i]))
+   printf("%c", (((text[i]-97)+N)%26)+97);
+
+   else
+   printf("%c", (((text[i]-65)+N)%26)+65);
+
+else
+printf("%c", text[i]);
+printf("\n");
+return 0;
+}
